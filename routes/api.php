@@ -20,4 +20,6 @@ Route::group(['prefix' => 'auth'], function (Router $router) {
     $router->post('sign_up', [Controllers\AuthController::class, 'signUp']);
 
     $router->post('sign_in', [Controllers\AuthController::class, 'signIn']);
+
+    $router->get('me', [Controllers\AuthController::class, 'me'])->middleware('auth:sanctum');
 });

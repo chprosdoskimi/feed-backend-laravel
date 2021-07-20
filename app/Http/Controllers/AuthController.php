@@ -45,4 +45,9 @@ class AuthController extends Controller
             return response()->json(['message' => $e->getMessage()], 400);
         }
     }
+
+    public function me(Request $request)
+    {
+        return response()->json($request->user());
+    }
 }
