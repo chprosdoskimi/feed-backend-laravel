@@ -23,3 +23,13 @@ Route::group(['prefix' => 'auth'], function (Router $router) {
 
     $router->get('me', [Controllers\AuthController::class, 'me'])->middleware('auth:sanctum');
 });
+
+Route::group(['prefix' => 'categories'], function (Router $router) {
+    $router->get('', [Controllers\CategoriesController::class, 'index']);
+});
+
+Route::group(['prefix'  => 'posts'], function (Router $router) {
+    $router->get('', [Controllers\PostsController::class, 'index']);
+
+    $router->post('', [Controllers\PostsController::class, 'create']);
+});
